@@ -81,6 +81,8 @@ function changeSongNext() {
     playMusic();
 }
 
+//these functions are used for 10 sec skip 
+
 function secForword(){
     audio.currentTime += 10;
     seekBar.value = audio.currentTime;
