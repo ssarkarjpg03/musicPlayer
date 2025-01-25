@@ -33,11 +33,17 @@ function pauseMusic() {
 
 //these functions are used for controling the progress bar 
 audio.onloadedmetadata = () => {
-    seekBar.max = audio.duration;
+   seekBar.max = audio.duration;
 }
 
 audio.ontimeupdate = () => {
-    seekBar.value = audio.currentTime;
+   seekBar.value = audio.currentTime;
+   
+}
+
+//this function is used whenn the audio is end the next song will play
+audio.onended = () =>{
+    changeSongNext();
 }
 
 //these function are used for changing the songs
