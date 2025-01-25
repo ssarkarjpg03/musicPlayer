@@ -81,6 +81,14 @@ function changeSongNext() {
     playMusic();
 }
 
+function secForword(){
+    audio.currentTime += 10;
+    seekBar.value = audio.currentTime;
+}
+function secBackword(){
+    audio.currentTime -= 10;
+    seekBar.value = audio.currentTime;
+}
 
 //these function are used for contrlor the volume function
 let volBarShow = () => {
