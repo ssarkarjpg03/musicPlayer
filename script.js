@@ -7,12 +7,16 @@ let volControl = document.getElementById("volControl");
 let volIcon = document.getElementById("volIcon");
 let muteIcon = document.getElementById("muteIcon");
 let img = document.getElementById("img");
+let songName = document.getElementById("songName");
 
 let song = ["audio/master.mp3","audio/jattmakna.mp3","audio/millioner.mp3","audio/blueeyes.mp3","audio/payel.mp3","audio/shesewali.mp3"];
 let currentSong =0;
 
 let cover = ["img/master.jpg", "img/jattmakna.jpg","img/millioner.jpg","img/blueeyes.jpg","img/payel.jpg","img/serawali.jpg"];
 let currentImg = 0;
+
+let name = ["Master the blaster","Jatt mehkma","Billioner","Blue eyes","Payel", "Serawali"];
+let currentName = 0;
 
 //these functions used for play pause the songs
 function playMusic() {
@@ -38,28 +42,34 @@ audio.ontimeupdate = () => {
 
 //these function are used for changing the songs
 function changeSongPrevious() {
-    if(currentSong == 0 && currentImg == 0) {
+    if(currentSong == 0 && currentImg == 0 && currentName == 0) {
         currentSong = 5;
         currentImg = 5;
+        currentName = 5;
     }
     else{
         currentSong -= 1;
         currentImg -= 1;
+        currentName -= 1;
     }
+    songName.innerText = name[currentName];
     img.src = cover[currentImg];
     audio.src = song[currentSong];
     playMusic();
 }
 
 function changeSongNext() {
-    if(currentSong == 5 && currentImg == 5) {
+    if(currentSong == 5 && currentImg == 5 && currentName == 5) {
         currentSong = 0;
-        currentImg = 0
+        currentImg = 0;
+        currentName = 0
     }
     else{
         currentSong += 1;
         currentImg += 1;
+        currentName += 1;
     }
+    songName.innerText = name[currentName];
     img.src = cover[currentImg];
     audio.src = song[currentSong];
     playMusic();
